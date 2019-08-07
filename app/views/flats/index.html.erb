@@ -4,7 +4,7 @@
       <h1>Simple Airbnb</h1>
     </div>
     <div class="col-lg-2 text-right">
-      <!-- button link to quelque chsoe -->
+      <%= link_to 'New Flat', new_flat_path %>
     </div>
   </div>
 </div>
@@ -12,9 +12,10 @@
   <div class="col">
     <div class="cards cards-grid mt-3 mb-3">
       <% @flats.each do |flat| %>
+         <%= link_to flat_path(flat) do%>
         <div class="card-product">
           <!-- images -->
-            <img src="https://picsum.photos/300" alt="">
+          <img src="https://picsum.photos/300" alt="">
           <div class="card-product-infos">
             <h2>Name: <%= flat.name %></h2>
             <p>Address: <%= flat.address %></p>
@@ -22,6 +23,7 @@
             <p><i class="material-icons mr-2">euro_symbol</i><%= flat.price_per_night %>, <i class="material-icons mr-2">people</i>: <%= flat.number_of_guests %></p>
           </div>
         </div>
+        <% end %>
       <% end %>  
     </div>
   </div>
